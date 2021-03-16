@@ -319,7 +319,7 @@ function Formular() {
             <Form.Label>Email</Form.Label>
             <Form.Control type="email" name="user_email" placeholder="Enter email" />
             <Form.Text className="text-muted">
-              We'll never share your email with anyone else.
+              Wir teilen Ihre Daten auf keinen Fall Dritten mit.
       </Form.Text>
           </Form.Group>
         </Col>

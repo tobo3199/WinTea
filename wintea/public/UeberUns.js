@@ -6,7 +6,7 @@ import { Container, Nav, Row, Col, Card, CardDeck } from 'react-bootstrap';
 function App() {
     return (
         <Container>
-            <p>hallo</p>
+            <p>Über uns</p>
         </Container>
     );
 }
