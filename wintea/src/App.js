@@ -1,7 +1,7 @@
 import logo from './cup.svg';
 import './App.css';
 import React, { useState } from 'react';
-import { Container, Nav, Row, Col, Card, CardDeck, Carousel, Form, Button, Image, Alert } from 'react-bootstrap';
+import { Container, Nav, Row, Col, Card, CardDeck, Carousel, Form, Button, Image, Alert, Modal } from 'react-bootstrap';
 import {
   HashRouter as Router,
   Switch,
@@ -17,7 +17,7 @@ function App() {
 
   return (
     <Router>
-      <Container>
+      <Container id="page-container">
         <Cup id="cup" height="50px" width="50px"></Cup>
         <Nav id="hauptmenu" className="justify-content-center mt-4 mb-4" defaultActiveKey="/home">
           <Nav.Item >
@@ -51,7 +51,7 @@ function App() {
             <Info />
           </Route>
         </Switch>
-
+        <Footer></Footer>
       </Container>
     </Router>
   );
@@ -186,6 +186,11 @@ function Minztee() {
 }
 
 function Formular() {
+
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   function sendEmail(e) {
     e.preventDefault();
@@ -334,7 +339,7 @@ function Formular() {
       </Row>
       <Row>
         <Col>
-          <Button variant="primary" type="submit">
+          <Button variant="primary" type="submit" onClick={handleShow}>
             Absenden
     </Button>
         </Col>
@@ -361,6 +366,28 @@ function Formular() {
           </Alert>
         </Col>
       </Row>
+
+      <Modal
+        show={show}
+        onHide={handleClose}
+        backdrop="static"
+        keyboard={false}
+      >
+        <Modal.Header closeButton>
+          <Modal.Title>Lieber Kunde</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          Ihre Bestellung wurde hiermit erfolgreich abgeschickt. Sie erhalten eine Bestätigung
+          per Mail. Vielen Dank für ihren Einkauf und noch einen schönen Tag.
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Close
+          </Button>
+          <Button variant="primary">Okay</Button>
+        </Modal.Footer>
+      </Modal>
+
     </Form>
   );
 }
@@ -384,4 +411,24 @@ function Info() {
       </Col>
     </Row>
   );
+}
+
+function Footer() {
+
+  return (
+    <Row>
+      <Col>
+        <div>
+          <div class="kontakt">
+            <p></p>
+            <label>Kontakt:</label>
+            <ul>
+              <li>wintea8400@gmail.com</li>
+            </ul>
+
+          </div>
+        </div>
+      </Col>
+    </Row>
+  )
 }

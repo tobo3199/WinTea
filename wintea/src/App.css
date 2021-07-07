@@ -76,3 +76,28 @@
   margin-left: 20px;
   margin-bottom: -70px;
 }
+
+/*for the foooter*/
+#footer {
+  
+  left: 0;
+  bottom: 0;
+  height: 2.5rem;
+  background-color: black;
+  color: white;
+  text-align: center;
+}
+
+#page-container{
+  position: relative;
+}
+
+.kontakt {
+  position: fixed;
+  text-align: left;
+}
+
+label {
+  padding-left: 20px;
+  color: orange;
+}
